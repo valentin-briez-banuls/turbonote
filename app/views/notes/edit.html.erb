@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "note_modal" do %>
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl">
+      <h2 class="text-xl font-semibold mb-4">Editing note</h2>
+
+      <%= render "form", note: @note %>
+
+      <div class="mt-4 flex justify-end space-x-2">
+        <%= link_to "Cancel", "#", data: { action: "click->modal#close" }, class: "text-gray-500 hover:underline" %>
+      </div>
+    </div>
+  </div>
+<% end %>

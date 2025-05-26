@@ -1,0 +1,32 @@
+<div class="ring-effect">
+  <i style="--clr:#00ff0a;"></i>
+  <i style="--clr:#ff0057;"></i>
+  <i style="--clr:#fffd44;"></i>
+
+  <div class="login">
+    <h2>Login</h2>
+
+    <% if flash[:alert] %>
+      <p class="text-red-500 text-sm text-center mb-4"><%= flash[:alert] %></p>
+    <% end %>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="inputBx">
+        <%= f.email_field :email, placeholder: "Email", required: true %>
+      </div>
+      <br>
+      <div class="inputBx">
+        <%= f.password_field :password, placeholder: "Password", required: true %>
+      </div>
+      <br>
+      <div class="inputBx">
+        <%= f.submit "Sign in" %>
+      </div>
+    <% end %>
+
+    <div class="links">
+      <%= link_to "Forgot password?", new_password_path(resource_name) %>
+      <%= link_to "Signup", new_registration_path(resource_name) %>
+    </div>
+  </div>
+</div>
